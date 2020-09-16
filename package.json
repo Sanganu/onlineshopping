@@ -1,0 +1,27 @@
+{
+  "name": "booksapimern",
+  "version": "1.0.0",
+  "description": "Google Books Search",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sanganu/booksapimern.git"
+  },
+  "keywords": [
+    "MERN",
+    "stack"
+  ],
+  "author": "Sangeetha K",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sanganu/booksapimern/issues"
+  },
+  "homepage": "https://github.com/Sanganu/booksapimern#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.5"
+  }
+}
