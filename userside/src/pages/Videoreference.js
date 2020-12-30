@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 // import Appheader from '../components/Appheader';
 import axios from 'axios';
 import Video from "./Video";
+import SearchVideo from "./SearchVideo";
 // import { Menubar } from "../components/Menubar";
 //import keys from "../keys/keys.js";
 // import myyoutube from "youtube-api-search";
@@ -9,18 +10,10 @@ import Video from "./Video";
 
 //const API_KEY = process.env.API_YOUTUBE || keys.API_YOUTUBE;
 
-class Videoreference extends Component {
-  state = {
-    videos: [],
-    searchvideo: ""
-  }
+function Videoreference (){
+  const[videos,searchvideo] = useState([])
+  const[searchTerm,setSearchTerm]=useState("")
 
-  handleInputChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value }, () => {
-      // console.log("Input",name,value))
-    });
-  }
 
   
 
@@ -52,12 +45,15 @@ class Videoreference extends Component {
                  <div>
                        <h4 className="subhead">Youtube Search</h4>
                         <form className="inputsection">
-                          <input type="text"
+                         <SearchVideo 
+                          searchTerm={searchTerm}
+                          getSearchTerm={setSearchTerm}/>
+                          {/* <input type="text"
                             className="form-control"
                             name="searchvideo"
                             value={this.state.searchvideo}
                             id="searchvideo"
-                            onChange={this.handleInputChange} />
+                            onChange={this.handleInputChange} /> */}
                           <button onClick={this.searchfor}>
                             Search for Reference Youtube Videos</button>
                         </form>
