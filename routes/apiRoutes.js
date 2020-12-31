@@ -58,9 +58,11 @@ router.get("/videos/:str", (req, res) => {
   youTubeSearch('JavaScript',options,function(err,results){
     if (err){
       console.log("Err in fetching Youtube data",err)
+      res.json(err)
     }
     else{
       console.log("Youtube results",results)
+      res.json(results)
     }
   })
 

@@ -1,11 +1,13 @@
 
 export default{
-    getReferenceVideo: function(searchKey){
-       fetch(`/api/videos/${searchKey}`)
-       .then((results) => {
-           console.log(results)
-           return results.json()
-       })
+    getReferenceVideo: async function(searchKey){
+     let apiData = await fetch(`/api/videos/${searchKey}`)
+     let searchData = await apiData.json() 
+      return  await searchData
+    //    .then((results) => {
+    //        console.log(results)
+    //        return results.json()
+    //    })
     }
 }
 
