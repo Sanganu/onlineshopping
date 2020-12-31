@@ -1,13 +1,28 @@
 import React,{ useState } from "react";
 import { TextInput, Button } from "react-materialize";
 import API from "../APICall/API";
+import Videodetail from "./Videodetail";
 
 function SearchVideo(props){
     const[searchTerm,setSearchTerm]=useState("")
+    const[videoDetails,setVideoDetails] =  useState([])
     const getVideos = () =>{
         API.getReferenceVideo(searchTerm)
         .then( response => {
                 console.log("Response",response)
+               let videoRecords =  response.map(video => {
+                        let videoDetail = {
+                                channelTitle:video.channelTitle,
+                                channelId:video.channelId,
+                                description:video.description,
+                                link: video.link,
+                                published:video.publishedAt,
+                                title: video.title,
+                                id:video.id
+                        }
+                        return videoDetail
+                })
+                setVideoDetails(videoRecords)
         })
         .catch((error)=>{
                 console.log("Error",error)
@@ -16,9 +31,18 @@ function SearchVideo(props){
   
         return(<div>
      
-                <label>Enter Search String</label>
-                <TextInput name={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
-                <Button onClick={getVideos}>Search Videos</Button>
+                <TextInput placeholder="Enter Search string" name={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
+                <Button onClick={getVideos}>Search Video</Button>
+                {videoDetails.map( (video) => (
+                        <Videodetail
+                          title = {video.title}
+                          description = {video.description}
+                          channelTitle = {video.channelTitle}
+                          channelId = {video.channelId}
+                          published = {video.published}
+                          link = {video.link}
+                          id={video.id} />
+                ))}
    
         </div>)
 

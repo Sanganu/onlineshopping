@@ -6,9 +6,9 @@ function Navigation(){
     return(<div>
         <Navbar
   alignLinks="left"
-  brand={<a className="brand-logo right" href="#">YouTube API</a>}
+  brand={<a className="brand-logo right" href="#">Coders Spot</a>}
   id="mobile-nav"
-  menuIcon={<Icon>menu</Icon>}
+  menuIcon={<Icon></Icon>}
   options={{
     draggable: true,
     edge: 'left',
@@ -21,13 +21,9 @@ function Navigation(){
     preventScrolling: true
   }}
 >
-  <NavItem onClick={function noRefCheck(){}}>
-    Search Video
-  </NavItem>
-  <NavItem href="components.html">
-    Saved Videos
-  </NavItem>
-</Navbar>
+<Button>Saved Videos</Button>
+<Button>Search Videos</Button>
+ </Navbar>
      
       </div>)
 }
