@@ -1,10 +1,13 @@
 
-
-export default = {
+export default{
     getReferenceVideo: function(searchKey){
-       fetch(`/api/visitors/${searchKey}`)
+       fetch(`/api/videos/${searchKey}`)
        .then((results) => {
+           console.log(results)
            return results.json()
        })
     }
 }
+
+
+

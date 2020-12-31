@@ -16,7 +16,7 @@ const routes = require("./routes");
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static("client/build"));
-  }
+ }
   
   
 app.use(routes);

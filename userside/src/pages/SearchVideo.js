@@ -1,15 +1,22 @@
 import React,{ useState } from "react";
-import { TextInput } from "react-materialize";
+import { TextInput, Button } from "react-materialize";
+import API from "../APICall/API";
 
 function SearchVideo(props){
-//     const[searchTerm,setSearchTerm]=useState("")
-    
+    const[searchTerm,setSearchTerm]=useState("")
+    const getVideos = () =>{
+        API.getReferenceVideo(searchTerm)
+        .then( response => {
+                console.log("Response",response)
+        })
+    }
   
         return(<div>
-                <div>
+     
                 <label>Enter Search String</label>
-                <TextInput name={props.searchTerm} onChange={(event) => props.getSearchTerm(event.target.value)} />
-                </div>
+                <TextInput name={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
+                <Button onClick={getVideos}>Search Videos</Button>
+   
         </div>)
 
 }

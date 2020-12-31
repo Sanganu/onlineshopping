@@ -6,6 +6,15 @@ const referencevideosSchema = new Schema({
         type: String,
         required: true
     },
+    title:{
+        type:String
+    },
+    description:{
+        type:String
+    },
+    url:{
+        type:String
+    },
     likes :{
         type: Number
     },

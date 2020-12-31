@@ -1,4 +1,5 @@
 import React from "react";
+import SearchVideo from "./SearchVideo";
 
 
 function Homepage(){
@@ -12,6 +13,7 @@ function Homepage(){
             <p className="grey-text text-darken-3 lighten-3">
                A MERN stack app to store reference videos.
             </p>
+            <SearchVideo />
           </div>
         </div>
        

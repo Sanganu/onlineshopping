@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 let MONGO_URL
-const MONGO_LOCAL_URL = `mongodb://localhost/MERNStackapp`
+const MONGO_LOCAL_URL = `mongodb://localhost/MERNYoutubeAPI`
 
 if (process.env.MONGODB_URI) {
 	MONGO_URL = process.env.MONGODB_URI
