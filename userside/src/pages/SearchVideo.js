@@ -18,7 +18,8 @@ function SearchVideo(props){
                                 link: video.link,
                                 published:video.publishedAt,
                                 title: video.title,
-                                id:video.id
+                                id:video.id,
+                                thumbnail:video.thumbnails.default.url
                         }
                         return videoDetail
                 })
