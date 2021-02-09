@@ -1,5 +1,5 @@
 import React,{ useState } from "react";
-import { TextInput, Button } from "react-materialize";
+import { TextInput, Button, Row, Col } from "react-materialize";
 import API from "../APICall/API";
 import Videodetail from "./Videodetail";
 
@@ -34,7 +34,9 @@ function SearchVideo(props){
      
                 <TextInput placeholder="Enter Search string" name={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
                 <Button onClick={getVideos}>Search Video</Button>
-                {videoDetails.map( (video) => (
+                <Row>
+                        <Col >
+                {videoDetails.map( (video,key) => (
                         <Videodetail
                           title = {video.title}
                           description = {video.description}
@@ -42,9 +44,11 @@ function SearchVideo(props){
                           channelId = {video.channelId}
                           published = {video.published}
                           link = {video.link}
-                          id={video.id} />
+                          id={video.id}
+                          key={key} />
                 ))}
-   
+                </Col>
+   </Row>
         </div>)
 
 }
