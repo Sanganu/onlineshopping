@@ -1,8 +1,9 @@
-const YouTube = require('youtube-node');
-const youTube = new YouTube();
 const router = require("express").Router();
-const db = require("../models/ReferenceVideos")
-const youTubeSearch = require("youtube-search");
+const youTubeController = require("../controllers/axiosController")
+// const YouTube = require('youtube-node');
+// const youTube = new YouTube();
+// const db = require("../models/ReferenceVideos")
+// const youTubeSearch = require("youtube-search");
 
 //Reference Videos Login - API to get Channel Videos and serve front end????????
 router.get("/old/videos/:str", (req, res) => {
@@ -48,24 +49,6 @@ router.get("/old/videos/:str", (req, res) => {
 
 
 //Reference Videos Login - API to get Channel Videos and serve front end????????
-router.get("/videos/:str", (req, res) => {
-  console.log("Youtubeheroku  API - Search", req.params.str);
-  let videos = [];
-  let options = {
-    maxResults: 9,
-    key: process.env.API_YOUTUBE
-  }
-  youTubeSearch('JavaScript',options,function(err,results){
-    if (err){
-      console.log("Err in fetching Youtube data",err)
-      res.json(err)
-    }
-    else{
-      console.log("Youtube results",results)
-      res.json(results)
-    }
-  })
-
-});
-
+router.route("/videos/:str")
+      .get(youTubeController.findAll)
 module.exports = router;

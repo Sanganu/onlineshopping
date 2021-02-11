@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, NavItem, Button, Icon } from "react-materialize";
-
+import {Link} from "react-router-dom";
 
 function Navigation() {
   return (<div>
@@ -21,8 +21,8 @@ function Navigation() {
         preventScrolling: true
       }}
     >
-      <Button>Saved Videos</Button>
-      <Button>Search Videos</Button>
+      <Button><Link to ="/saved">Saved Videos</Link></Button>
+      <Button><Link to="/">Search Videos</Link></Button>
     </Navbar>
 
   </div>)

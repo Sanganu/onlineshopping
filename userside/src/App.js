@@ -11,6 +11,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route exact path="/">{Homepage}</Route>
+        <Route exact path="/saved">{Homepage}</Route>
       </Switch>
      
  
